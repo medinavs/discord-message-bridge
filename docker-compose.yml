@@ -1,7 +1,10 @@
-version: "3"
+version: '3.8'
 services:
-  app:
+  discord-bot:
     build: .
-    command: node build/main.js
     environment:
-      - BOT_TOKEN=${BOT_TOKEN}
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - DISCORD_CHANNEL_ID=${DISCORD_CHANNEL_ID}
+      - N8N_WEBHOOK_URL=${N8N_WEBHOOK_URL}
+    env_file:
+      - .env
