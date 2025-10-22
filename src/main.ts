@@ -1,4 +1,4 @@
-import { dirname, importx } from "@discordx/importer";
+import { importx } from "@discordx/importer";
 import {
   IntentsBitField,
   type Interaction,
@@ -48,7 +48,7 @@ bot.on("messageCreate", (message: Message) => {
 });
 
 async function run() {
-  await importx(`${dirname(import.meta.url)}/{events,commands}/**/*.{ts,js}`);
+  await importx(`${__dirname}/{events,commands}/**/*.{ts,js}`);
 
   if (!process.env.BOT_TOKEN) {
     throw Error("Could not find BOT_TOKEN in your environment");
